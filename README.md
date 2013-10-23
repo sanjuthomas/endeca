@@ -1,0 +1,1 @@
+Vist http://ourownjava.com/endeca for more details on this repository.
