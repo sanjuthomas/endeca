@@ -16,17 +16,14 @@ import com.endeca.navigation.DimValList;
 
 public class DimensionTree {
 
-	private final Map<Long, Dimension> idDimensionMap = new LinkedHashMap<Long, Dimension>();
-
 	private final Map<Long, Dimension> idRootDimensionMap = new LinkedHashMap<Long, Dimension>();
 
 	public void addNodes(final DimVal rootNode, final DimValList ancestors,
 			final DimVal leaf) {
-		Dimension root = idDimensionMap.get(rootNode.getId());
+		Dimension root = idRootDimensionMap.get(rootNode.getId());
 		if (null == root) {
 			root = new Dimension(rootNode.getId());
 			root.setName(rootNode.getName());
-			idDimensionMap.put(rootNode.getId(), root);
 			idRootDimensionMap.put(rootNode.getId(), root);
 		}
 		for (Object dimValElement : ancestors) {
@@ -38,12 +35,12 @@ public class DimensionTree {
 
 	private Dimension createNode(final Dimension parentDimension,
 			final DimVal dimVal) {
-		Dimension node = idDimensionMap.get(dimVal.getId());
+		Dimension node = idRootDimensionMap.get(dimVal.getId());
 		if (null == node) {
 			node = new Dimension(dimVal.getId());
 			node.setName(dimVal.getName());
 			parentDimension.addRefinement(node);
-			idDimensionMap.put(dimVal.getId(), node);
+			idRootDimensionMap.put(dimVal.getId(), node);
 		}
 		return node;
 	}
