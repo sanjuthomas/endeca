@@ -26,18 +26,15 @@ public class OracleEndecaDimensionSearchClient {
 		final ENEQuery query = new ENEQuery();
 		query.setDimSearchTerms("*");
 		final ENEQueryResults results = search(query);
-		final DimensionSearchResult dimensionSearchResult = results
-				.getDimensionSearch();
-		final DimensionSearchResultGroupList dimensionSearchResultGroupList = dimensionSearchResult
-				.getResults();
+		final DimensionSearchResult dimensionSearchResult = results.getDimensionSearch();
+		final DimensionSearchResultGroupList dimensionSearchResultGroupList = dimensionSearchResult.getResults();
 		for (final Object dimensionSearchResultGroupElement : dimensionSearchResultGroupList) {
 			final DimensionSearchResultGroup dimensionSearchResultGroup = (DimensionSearchResultGroup) dimensionSearchResultGroupElement;
 			final DimValList roots = dimensionSearchResultGroup.getRoots();
-			if (roots.size() != 0) {
+			if (!roots.isEmpty()) {
 				final DimVal root = (DimVal) roots.get(0);
 				for (int i = 0; i < dimensionSearchResultGroup.size(); i++) {
-					final DimLocationList dimLocationList = (DimLocationList) dimensionSearchResultGroup
-							.get(i);
+					final DimLocationList dimLocationList = (DimLocationList) dimensionSearchResultGroup.get(i);
 					for (final Object dimLocationElement : dimLocationList) {
 						final DimLocation dimLocation = (DimLocation) dimLocationElement;
 						final DimValList ancestors = dimLocation.getAncestors();
