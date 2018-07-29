@@ -1,1 +1,4 @@
-Vist http://ourownjava.com/endeca for more details on this repository.
+# Oracle Endeca Samples
+
+## Oracle Endeca Type Ahead
+## Load Dimension Tree from Oracle Endeca
