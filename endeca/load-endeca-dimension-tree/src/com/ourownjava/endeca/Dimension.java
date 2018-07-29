@@ -4,78 +4,82 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
- * @author ourownjava.com
- * 
+ *
+ * @author Sanju Thomas
+ *
  */
 
 public class Dimension {
 
-	public Dimension(final long id) {
-		this.id = id;
-	}
+  public Dimension(final long id) {
+    this.id = id;
+  }
 
-	private long id;
+  private long id;
 
-	private String name;
+  private String name;
 
-	private final List<Dimension> refinements = new ArrayList<Dimension>();
+  private final List<Dimension> refinements = new ArrayList<Dimension>();
 
-	public long getId() {
-		return id;
-	}
+  public long getId() {
+    return this.id;
+  }
 
-	public void setId(final long id) {
-		this.id = id;
-	}
+  public void setId(final long id) {
+    this.id = id;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return this.name;
+  }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+  public void setName(final String name) {
+    this.name = name;
+  }
 
-	public List<Dimension> getRefinements() {
-		return refinements;
-	}
+  public List<Dimension> getRefinements() {
+    return this.refinements;
+  }
 
-	public void addRefinement(final Dimension dimension) {
-		this.refinements.add(dimension);
-	}
-	
-	public boolean hasRefinements(){
-		return !refinements.isEmpty();
-	}
+  public void addRefinement(final Dimension dimension) {
+    this.refinements.add(dimension);
+  }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
+  public boolean hasRefinements() {
+    return !this.refinements.isEmpty();
+  }
 
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final Dimension other = (Dimension) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = (prime * result) + (int) (this.id ^ (this.id >>> 32));
+    return result;
+  }
 
-	@Override
-	public String toString() {
-		return "Dimension [id=" + id + ", name=" + name + ", refinements="
-				+ refinements + "]";
-	}
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final Dimension other = (Dimension) obj;
+    if (this.id != other.id) {
+      return false;
+    }
+    return true;
+  }
 
-	
+  @Override
+  public String toString() {
+    return "Dimension [id=" + this.id + ", name=" + this.name + ", refinements=" + this.refinements
+        + "]";
+  }
+
+
 }
